@@ -106,22 +106,19 @@ p {
 .hover-btn {
     background-color: #ffffff;
     color: #005ce8;
-    border: 2px solid #005ce8;
-    padding: 12px 26px;
+    padding: 10px 26px;
     text-decoration: none;
     border-radius: 8px;
     font-weight: bold;
     font-size: 15px;
     display: inline-block;
     transition: all 0.2s ease-in-out;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 .hover-btn:hover {
     background-color: #005ce8;
     color: #ffffff;
-    box-shadow: 0 4px 12px rgba(0, 92, 232, 0.25);
-    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 92, 232, 0.3);
 }
 
 /* ========================================== */
