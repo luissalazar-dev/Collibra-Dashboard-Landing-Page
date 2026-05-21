@@ -1,0 +1,165 @@
+/* ========================================== */
+/* GLOBAL RESET & BASE STYLES                 */
+/* ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #333333;
+    line-height: 1.6;
+    background-color: #f9fafb;
+    padding: 20px;
+}
+
+/* ========================================== */
+/* PORTAL CONTAINER                           */
+/* ========================================== */
+.portal-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+/* ========================================== */
+/* LAYOUT ROWS (FLEXBOX)                      */
+/* ========================================== */
+.portal-row {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 60px 40px;
+}
+.portal-row.alternate {
+    padding: 20px 40px 80px 40px;
+}
+
+.portal-col-text {
+    flex: 1;
+    min-width: 300px;
+}
+.portal-col-image {
+    flex: 1.2;
+    min-width: 300px;
+    text-align: right;
+}
+
+/* ========================================== */
+/* TYPOGRAPHY                                 */
+/* ========================================== */
+.badge {
+    display: inline-block;
+    background-color: #e6f0ff;
+    color: #005ce8;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+h1 {
+    color: #111827;
+    font-size: 42px;
+    margin: 0 0 15px 0;
+    line-height: 1.15;
+    font-family: Georgia, serif;
+    letter-spacing: -0.5px;
+}
+h2 {
+    color: #111827;
+    font-size: 32px;
+    margin: 0 0 15px 0;
+    line-height: 1.2;
+    font-family: Georgia, serif;
+    letter-spacing: -0.3px;
+}
+p {
+    color: #4b5563;
+    font-size: 18px;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+.secondary-p {
+    color: #666666;
+    font-size: 16px;
+    margin: 0 0 25px 0;
+}
+
+/* ========================================== */
+/* BUTTON GROUP & HOVER ACTION                */
+/* ========================================== */
+.btn-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    align-items: center;
+}
+.hover-btn {
+    background-color: #ffffff;
+    color: #005ce8;
+    border: 2px solid #005ce8;
+    padding: 12px 26px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    cursor: pointer;
+}
+.hover-btn:hover {
+    background-color: #005ce8;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 92, 232, 0.25);
+    transform: translateY(-1px);
+}
+
+/* ========================================== */
+/* GRAPHICS / IMAGE PLACEHOLDERS              */
+/* ========================================== */
+.graphic-box {
+    width: 100%;
+    max-width: 600px;
+    height: 320px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+    background-color: #eef2f6;
+    transition: transform 0.3s ease;
+}
+.graphic-box:hover {
+    transform: scale(1.01);
+}
+
+/* GitHub Hosted Images (Looking up one folder level) */
+.network-img {
+    background-image: url('../networking.jpg'); 
+}
+
+.map-img {
+    background-image: url('../map.jpg'); 
+}
+
+/* ========================================== */
+/* RESPONSIVE BREAKPOINTS                     */
+/* ========================================== */
+@media (max-width: 768px) {
+    body { padding: 10px; }
+    .portal-row { padding: 40px 20px; gap: 30px; }
+    .portal-row.alternate { padding: 20px 20px 40px 20px; flex-direction: column-reverse; }
+    .portal-col-image { text-align: center; }
+    h1 { font-size: 32px; }
+    h2 { font-size: 26px; }
+}
