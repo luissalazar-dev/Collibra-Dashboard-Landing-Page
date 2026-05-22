@@ -1,31 +1,31 @@
-document.addEventListener("DOMContentLoaded", async function() {
+/* ========================================== */
+/* DDC PORTAL - MAIN JAVASCRIPT               */
+/* ========================================== */
+document.addEventListener("DOMContentLoaded", function() {
     
-    // Target our new top header span
-    const greetingElement = document.getElementById("user-greeting");
+    // Dynamically grab the native Collibra domain
+    const baseURL = `${window.location.protocol}//${window.location.host}`;
 
-    try {
-        // Call the Collibra internal API 
-        const response = await fetch('/rest/2.0/users/current', {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json'
-            }
-        });
+    // Call the Collibra Active Session API
+    fetch(`${baseURL}/rest/2.0/auth/sessions/current?include=user`)
+      .then(response => response.json())
+      .then(({ user }) => {
+          
+        // 1. Grab their names
+        const firstName = user.firstName || "";
+        const lastName = user.lastName || "";
+        
+        // 2. Format the display name (Fallback to their username if their profile is empty)
+        const displayName = (firstName || lastName) ? `${firstName} ${lastName}`.trim() : user.userName;
 
-        if (response.ok) {
-            const userData = await response.json();
-            
-            // Try to use their first name, fallback to their username
-            const userName = userData.firstName || userData.userName; 
-            
-            // Inject the simplified greeting into the top bar
-            greetingElement.innerText = `Welcome, ${userName}`;
-        } else {
-            console.warn("API Call succeeded, but user was not found.");
-            greetingElement.innerText = "Welcome";
-        }
-    } catch (error) {
-        console.error("Failed to fetch Collibra user:", error);
-        greetingElement.innerText = "Welcome";
-    }
+        // 3. Inject the name into the HTML
+        document.getElementById('name').textContent = displayName;
+        
+      })
+      .catch((error) => {
+        console.error("Failed to load user session:", error);
+        
+        // Fallback UI if the API call fails
+        document.getElementById('name').textContent = 'User';
+      });
 });
