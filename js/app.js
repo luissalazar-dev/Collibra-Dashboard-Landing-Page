@@ -1,30 +1,31 @@
-/* ========================================== */
-/* DYNAMIC URL GENERATOR                      */
-/* ========================================== */
-document.addEventListener("DOMContentLoaded", function() {
-    let collibraBaseUrl = "";
+document.addEventListener("DOMContentLoaded", async function() {
     
+    // Target our new top header span
+    const greetingElement = document.getElementById("user-greeting");
+
     try {
-        // 1. Check who loaded this iframe
-        if (document.referrer) {
-            // 2. Extract just the root domain
-            const referrerUrl = new URL(document.referrer);
-            collibraBaseUrl = referrerUrl.origin; 
-        } else {
-            // Fallback in case browser privacy settings block the referrer
-            collibraBaseUrl = ""; 
-        }
-        
-        // 3. Find every link on the page that starts with a "/"
-        const links = document.querySelectorAll('a[href^="/"]');
-        
-        // 4. Attach the dynamic Collibra environment domain to the front of each link
-        links.forEach(link => {
-            const originalPath = link.getAttribute("href");
-            link.setAttribute("href", collibraBaseUrl + originalPath);
+        // Call the Collibra internal API 
+        const response = await fetch('/rest/2.0/users/current', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json'
+            }
         });
-        
+
+        if (response.ok) {
+            const userData = await response.json();
+            
+            // Try to use their first name, fallback to their username
+            const userName = userData.firstName || userData.userName; 
+            
+            // Inject the simplified greeting into the top bar
+            greetingElement.innerText = `Welcome, ${userName}`;
+        } else {
+            console.warn("API Call succeeded, but user was not found.");
+            greetingElement.innerText = "Welcome";
+        }
     } catch (error) {
-        console.error("Could not generate dynamic URLs:", error);
+        console.error("Failed to fetch Collibra user:", error);
+        greetingElement.innerText = "Welcome";
     }
 });

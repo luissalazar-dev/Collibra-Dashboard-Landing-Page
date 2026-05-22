@@ -29,6 +29,16 @@ body {
 /* ========================================== */
 /* LAYOUT ROWS (FLEXBOX)                      */
 /* ========================================== */
+.portal-top-bar {
+    background-color: #f3f4f6; /* Light gray background */
+    padding: 12px 40px;
+    border-bottom: 1px solid #e5e7eb; /* Subtle dividing line */
+    text-align: right; /* Puts the user name on the right side */
+    font-size: 14px;
+    font-weight: 600;
+    color: #4b5563;
+}
+
 .portal-row {
     display: flex;
     align-items: center;
