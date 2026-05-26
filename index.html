@@ -3,56 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DDC Data Governance Hub</title>
-    <link rel="stylesheet" href="css/style.css?v=1.1">
+    <title>DDC Data Governance Landing Page</title>
+    <link rel="stylesheet" href="css/style.css?v=3.0">
 </head>
 <body>
 
-    <div class="portal-container">
+    <div class="portal-top-bar">
+        <span id="user-greeting">Welcome, <span id="name">...</span></span>
+    </div>
 
-        <div class="portal-top-bar">
-            <span id="user-greeting">Welcome, <span id="name">...</span></span>
-        </div>
-
-        <div class="portal-row">
+    <div class="hero-wrapper">
+        <div class="portal-container hero-container">
             
-            <div class="portal-col-text">
-                <h1>Welcome to the<br>DDC Landing page</h1>
-                <p>Get information on Workflows and navigate to throughout Collibra.</p>
+            <div class="hero-content">
+                <h1><span>DDC Data Governance</span><br>Landing Page</h1>
+                <p>DDC Hub is a centralized platform for managing data policies, definitions, and workflows in an interactive, automated way.</p>
                 
-                <div class="btn-group">
-                    <a href="/tasks/your" class="hover-btn" target="_blank">Your Tasks</a>
-                    <a href="/settings" class="hover-btn" target="_blank">Settings Overview</a>
-                    <a href="/settings/workflows/definitions" class="hover-btn" target="_blank">Workflow Definitions</a>
+                <div class="search-wrapper">
+                    <input type="text" placeholder="Search Data Assets, Workflows..." class="search-input">
+                    <button class="search-btn">Search</button>
                 </div>
             </div>
 
-            <div class="portal-col-image">
-                <div class="graphic-box network-img" title="Network Visualization"></div>
+            <div class="hero-image-col">
+                <img src="networking.jpg" alt="Network Visualization" class="hero-img">
             </div>
 
         </div>
+    </div>
 
-        <div class="portal-row alternate">
-            
-            <div class="portal-col-image">
-                <div class="graphic-box map-img" title="Global Data Map"></div>
+    <div class="portal-container features-section">
+        <h2><span>Embedded Widget</span> Landing Page</h2>
+        <p class="features-subtitle">A fully customized Collibra experience powered by native HTML, CSS, and JavaScript, offering seamless API integrations and personalized data visualization.</p>
+
+        <div class="cards-row">
+            <div class="feature-card">
+                <h3>Task Management</h3>
+                <p>Review, approve, and manage your actively assigned data governance tasks and pending requests.</p>
+                <a href="/tasks/your" class="hover-btn" target="_blank">Your Tasks</a>
             </div>
             
-            <div class="portal-col-text">
-                <h2>Navigate to Dashboards</h2>
-                <p class="secondary-p">Selected Dashboards can be linked and accessed from here. May also link to other sources and references inside Collibra. Unable to launch Workflows directly from Text Widget.</p>
-                
-                <div class="btn-group">
-                    <a href="/dashboard?d=00000000-0000-0000-0000-000000110002&name=Dashboard" class="hover-btn" target="_blank">Main Dashboard</a>
-                    <a href="/dashboard?d=019ce3aa-15f4-7102-8bf5-86bb5a613738&name=Data%20Sharing%20Agreements" class="hover-btn" target="_blank">Data Sharing Agreements</a>
-                </div>
+            <div class="feature-card">
+                <h3>Platform Settings</h3>
+                <p>Access global configuration options, user management, and system preferences for the environment.</p>
+                <a href="/settings" class="hover-btn" target="_blank">Settings Overview</a>
             </div>
-
+            
+            <div class="feature-card">
+                <h3>Workflow Definitions</h3>
+                <p>Upload BPMN process files and oversee the foundational workflows that drive approvals and automated governance tasks.</p>
+                <a href="/settings/workflows/definitions" class="hover-btn" target="_blank">Workflow Definitions</a>
+            </div>
         </div>
 
     </div>
 
-    <script src="js/app.js?v=1.1"></script>
+    <script src="js/app.js?v=3.0"></script>
 </body>
 </html>
